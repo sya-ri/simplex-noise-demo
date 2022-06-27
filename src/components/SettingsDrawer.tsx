@@ -40,7 +40,7 @@ const SettingsDrawer: FC<SettingsDrawerProps> = ({ isOpen, onClose }) => {
         <DrawerHeader>Settings</DrawerHeader>
 
         <DrawerBody>
-          <Stack spacing="24px">
+          <Stack spacing={6}>
             <Box>
               <FormLabel htmlFor="width">Width</FormLabel>
               <NumberInput
