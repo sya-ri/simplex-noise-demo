@@ -16,13 +16,13 @@ const NoisePreview: FC<NoisePreviewProps> = ({ width, height, stepX, stepY, cell
   return (
     <Box>
       {Array.from({ length: height }, (_y, y) => (
-        <Flex>
+        <Flex key={y}>
           {Array.from({ length: width }, (_x, x) => {
             // Convert a value from -1 to 1 to 0 to 1.
             // After that, multiply 0 to 1 by 100 and convert to a percentage.
             const noise = simplex.noise2D(x * stepX, y * stepY)
             return (
-              <Tooltip label={`(${x}, ${y}): ${noise}`} hasArrow placement="top">
+              <Tooltip key={x} label={`(${x}, ${y}): ${noise}`} hasArrow placement="top">
                 <Box w={cellWidth} h={cellHeight} bg={`hsl(0, 0%, ${(100 * (noise + 1)) / 2.0}%)`} />
               </Tooltip>
             )
