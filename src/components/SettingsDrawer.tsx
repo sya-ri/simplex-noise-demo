@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react'
 import {
-  Box,
   Button,
   Drawer,
   DrawerBody,
@@ -9,16 +8,11 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  FormLabel,
-  NumberDecrementStepper,
-  NumberIncrementStepper,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
   Stack
 } from '@chakra-ui/react'
 import { useRecoilState } from 'recoil'
 import * as states from '../states'
+import SettingNumberInput from './SettingNumberInput'
 
 export type SettingsDrawerProps = {
   isOpen: boolean
@@ -41,86 +35,52 @@ const SettingsDrawer: FC<SettingsDrawerProps> = ({ isOpen, onClose }) => {
 
         <DrawerBody>
           <Stack spacing={6}>
-            <Box>
-              <FormLabel htmlFor="width">Width</FormLabel>
-              <NumberInput
-                id="width"
-                defaultValue={options.width}
-                min={1}
-                onChange={(_value, value) => setOptions({ ...options, width: value })}
-              >
-                <NumberInputField />
-                <NumberInputStepper>
-                  <NumberIncrementStepper />
-                  <NumberDecrementStepper />
-                </NumberInputStepper>
-              </NumberInput>
-            </Box>
-            <Box>
-              <FormLabel htmlFor="height">Height</FormLabel>
-              <NumberInput
-                id="height"
-                defaultValue={options.height}
-                min={1}
-                onChange={(_value, value) => setOptions({ ...options, height: value })}
-              >
-                <NumberInputField />
-                <NumberInputStepper>
-                  <NumberIncrementStepper />
-                  <NumberDecrementStepper />
-                </NumberInputStepper>
-              </NumberInput>
-            </Box>
-            <Box>
-              <FormLabel htmlFor="stepX">Step X</FormLabel>
-              <NumberInput
-                id="stepX"
-                defaultValue={options.stepX}
-                onChange={(_value, value) => setOptions({ ...options, stepX: value })}
-              >
-                <NumberInputField />
-              </NumberInput>
-            </Box>
-            <Box>
-              <FormLabel htmlFor="stepX">Step Y</FormLabel>
-              <NumberInput
-                id="stepY"
-                defaultValue={options.stepY}
-                onChange={(_value, value) => setOptions({ ...options, stepY: value })}
-              >
-                <NumberInputField />
-              </NumberInput>
-            </Box>
-            <Box>
-              <FormLabel htmlFor="cellWidth">Cell Width</FormLabel>
-              <NumberInput
-                id="cellWidth"
-                defaultValue={options.cellWidth}
-                min={1}
-                onChange={(_value, value) => setOptions({ ...options, cellWidth: value })}
-              >
-                <NumberInputField />
-                <NumberInputStepper>
-                  <NumberIncrementStepper />
-                  <NumberDecrementStepper />
-                </NumberInputStepper>
-              </NumberInput>
-            </Box>
-            <Box>
-              <FormLabel htmlFor="cellHeight">Cell Height</FormLabel>
-              <NumberInput
-                id="cellHeight"
-                defaultValue={options.cellHeight}
-                min={1}
-                onChange={(_value, value) => setOptions({ ...options, cellHeight: value })}
-              >
-                <NumberInputField />
-                <NumberInputStepper>
-                  <NumberIncrementStepper />
-                  <NumberDecrementStepper />
-                </NumberInputStepper>
-              </NumberInput>
-            </Box>
+            <SettingNumberInput
+              id="width"
+              label="Width"
+              value={options.width}
+              min={1}
+              onChange={(value) => setOptions({ ...options, width: value })}
+              hasStepper
+            />
+            <SettingNumberInput
+              id="height"
+              label="Height"
+              value={options.height}
+              min={1}
+              onChange={(value) => setOptions({ ...options, height: value })}
+              hasStepper
+            />
+            <SettingNumberInput
+              id="stepX"
+              label="Step X"
+              value={options.stepX}
+              min={0}
+              onChange={(value) => setOptions({ ...options, stepX: value })}
+            />
+            <SettingNumberInput
+              id="stepY"
+              label="Step Y"
+              value={options.stepY}
+              min={0}
+              onChange={(value) => setOptions({ ...options, stepY: value })}
+            />
+            <SettingNumberInput
+              id="cellWidth"
+              label="Cell Width"
+              value={options.cellWidth}
+              min={1}
+              onChange={(value) => setOptions({ ...options, cellWidth: value })}
+              hasStepper
+            />
+            <SettingNumberInput
+              id="cellHeight"
+              label="Cell Height"
+              value={options.cellHeight}
+              min={1}
+              onChange={(value) => setOptions({ ...options, cellHeight: value })}
+              hasStepper
+            />
           </Stack>
         </DrawerBody>
 
