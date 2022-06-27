@@ -8,8 +8,8 @@ export const previewOptions = atom<NoisePreviewProps>({
   default: {
     width: 60,
     height: 30,
-    stepX: 1,
-    stepY: 1,
+    stepX: 0.1,
+    stepY: 0.1,
     cellWidth: 4,
     cellHeight: 4,
     simplex: new SimplexNoise()
