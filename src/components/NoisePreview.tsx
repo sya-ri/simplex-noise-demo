@@ -15,9 +15,9 @@ export type NoisePreviewProps = {
 const NoisePreview: FC<NoisePreviewProps> = ({ width, height, stepX, stepY, cellWidth, cellHeight, simplex }) => {
   return (
     <Box>
-      {Array.from({ length: height }, (_x, x) => (
+      {Array.from({ length: height }, (_y, y) => (
         <Flex>
-          {Array.from({ length: width }, (_y, y) => {
+          {Array.from({ length: width }, (_x, x) => {
             // Convert a value from -1 to 1 to 0 to 1.
             // After that, multiply 0 to 1 by 100 and convert to a percentage.
             const noise = simplex.noise2D(x * stepX, y * stepY)
