@@ -1,13 +1,14 @@
 import React, { FC } from 'react'
 import { Center } from '@chakra-ui/react'
-import SimplexNoise from 'simplex-noise'
+import { useRecoilValue } from 'recoil'
 import NoisePreview from './NoisePreview'
+import * as states from '../states'
 
 const Body: FC = () => {
-  const simplex = new SimplexNoise()
+  const props = useRecoilValue(states.previewOptions)
   return (
     <Center mx={2} my={4}>
-      <NoisePreview width={60} height={30} stepX={1} stepY={1} cellWidth={4} cellHeight={4} simplex={simplex} />
+      <NoisePreview {...props /* eslint-disable-line react/jsx-props-no-spreading */} />
     </Center>
   )
 }
