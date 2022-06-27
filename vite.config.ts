@@ -9,5 +9,6 @@ export default defineConfig({
     outDir: '../dist',
     emptyOutDir: true
   },
+  publicDir: "../public",
   plugins: [react(), createHtmlPlugin({ minify: true })]
 })
