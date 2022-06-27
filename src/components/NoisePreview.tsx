@@ -14,7 +14,7 @@ export type NoisePreviewProps = {
 
 const NoisePreview: FC<NoisePreviewProps> = ({ width, height, stepX, stepY, cellWidth, cellHeight, simplex }) => {
   return (
-    <Box>
+    <Box maxW="full">
       {Array.from({ length: height }, (_y, y) => (
         <Flex key={y}>
           {Array.from({ length: width }, (_x, x) => {
@@ -23,7 +23,7 @@ const NoisePreview: FC<NoisePreviewProps> = ({ width, height, stepX, stepY, cell
             const noise = simplex.noise2D(x * stepX, y * stepY)
             return (
               <Tooltip key={x} label={`(${x}, ${y}): ${noise}`} hasArrow placement="top">
-                <Box w={cellWidth} h={cellHeight} bg={`hsl(0, 0%, ${(100 * (noise + 1)) / 2.0}%)`} />
+                <Box w={cellWidth} h={cellHeight} bg={`hsl(0, 0%, ${(100 * (noise + 1)) / 2.0}%)`} flexShrink={0} />
               </Tooltip>
             )
           })}

@@ -7,7 +7,7 @@ import * as states from '../states'
 const Body: FC = () => {
   const props = useRecoilValue(states.previewOptions)
   return (
-    <Center mx={2} my={4}>
+    <Center mx={2} my={4} overflow="auto">
       <NoisePreview {...props /* eslint-disable-line react/jsx-props-no-spreading */} />
     </Center>
   )
