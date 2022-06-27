@@ -22,7 +22,12 @@ const SettingNumberInput: FC<SettingNumberInputProps> = ({ id, label, value, min
   return (
     <Box>
       <FormLabel htmlFor={id}>{label}</FormLabel>
-      <NumberInput id={id} value={value} min={min} onChange={(_after, after) => onChange(after)}>
+      <NumberInput
+        id={id}
+        value={value}
+        min={min}
+        onChange={(_after, after) => onChange(Number.isNaN(after) ? 0 : after)}
+      >
         <NumberInputField />
         {hasStepper && (
           <NumberInputStepper>
