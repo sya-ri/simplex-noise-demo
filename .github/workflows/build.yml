@@ -18,9 +18,7 @@ jobs:
           yarn lint
       - name: Build
         run: |
-          yarn build
-        env:
-          BASE_URL: /simplex-noise-demo/
+          yarn build --base=/simplex-noise-demo/
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
