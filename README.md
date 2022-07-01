@@ -22,3 +22,7 @@ You can also regenerate it with the reload icon.
 Press the gear icon to open the settings screen.
 
 ![](readme-assets/settings.png)
+
+## License
+
+This web app is released under the MIT License, see [LICENSE](LICENSE).
