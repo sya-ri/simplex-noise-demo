@@ -1,6 +1,7 @@
 # simplex-noise-demo
 
 A web app for trying out texture generation using simplex-noise.
+Thanks to [jwagner/simplex-noise.js](https://github.com/jwagner/simplex-noise.js) ❤️
 
 ## What's simplex-noise?
 
