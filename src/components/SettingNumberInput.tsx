@@ -24,7 +24,7 @@ const SettingNumberInput: FC<SettingNumberInputProps> = ({ id, label, value, min
       <FormLabel htmlFor={id}>{label}</FormLabel>
       <NumberInput
         id={id}
-        value={value}
+        defaultValue={value}
         min={min}
         onChange={(_after, after) => onChange(Number.isNaN(after) ? 0 : after)}
       >
